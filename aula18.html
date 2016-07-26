@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+
+  <style>
+    .bloco{
+      background: red;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+  <body>
+
+    <h1 id="mensagem" class="bloco">Seja bem vindo!</h1>
+
+    <form id="frmContato">
+      <input type="text" id="txtNome" value="">
+      <input type="submit" value="Enviar">
+    </form>
+
+    <script type="text/javascript">
+    // Eventos
+
+    var h1Mensagem = document.getElementById("mensagem");
+    var frmContato = document.getElementById("frmContato");
+    var inputNome = document.getElementById("txtNome");
+
+    var fncMouseOver = function(){
+      this.innerHTML = "Você passou o mouse em cima";
+    };
+
+    var fncMouseOut = function(){
+      this.innerHTML = "Seja Bem Vindo";
+    };
+
+    var submitFormContato = function(){
+
+
+      if(inputNome.value == ""){
+        alert("Preencha o campo nome!");
+        return false;
+      }
+    };
+
+    inputNome.onfocus = function(){
+      console.log("O Campo recebeu foco");
+    };
+
+    inputNome.onblur = function(){
+      console.log("O campo perdeu o foco");
+    }
+
+    h1Mensagem.onmouseover = fncMouseOver;
+
+    h1Mensagem.onmouseout = fncMouseOut;
+
+    frmContato.onsubmit = submitFormContato;
+
+    inputNome.onfocus();
+
+    </script>
+  </body>
+</html>

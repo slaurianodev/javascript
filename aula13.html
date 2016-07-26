@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+    <script type="text/javascript">
+    /* Objeto Date */
+    var data = new Date();
+    var mensagem = "";
+    var diaSemana = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+    var meses = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+
+    console.log(data.getTime());// milisegundos passados desde 1970-01-01
+    console.log(data.getDate());// pega o dia da data
+    console.log(data.getFullYear());// pega o ano da data
+    console.log(data.getMonth());
+    console.log(data.getDay());
+
+    mensagem = "Olá! Hoje é " + diaSemana[data.getDay()]+", " +data.getDate()+" de " + meses[data.getMonth()] + " de " + data.getFullYear() +".";
+
+    document.write(mensagem);
+
+    </script>
+  </body>
+</html>

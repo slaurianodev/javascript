@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+
+
+    <script type="text/javascript">
+
+    /* JSON */
+    var person = {
+      "nome" : "Sergio",
+      "sobrenome" : "Lauriano"
+
+  };
+
+    console.log(person);
+    console.log(person.nome);
+
+    var texto = '{ "paragrafo" : "teste teste teste"}';
+    console.log(texto);
+    console.log(JSON.parse(texto));
+
+    var clientes = {
+      "clientes" : [
+        {"nome" : "Sergio Lauriano", "idade": 31},
+        {"nome" : "Joao da Silva", "idade": 21},
+        {"nome" : "Paulo Moreira", "idade": 42}
+      ]
+    };
+
+    console.log(clientes);
+    </script>
+  </body>
+</html>

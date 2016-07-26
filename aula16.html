@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+
+
+    <script type="text/javascript">
+    /* Criar elemento via Javascript */
+    var botao1 = document.createElement("BUTTON");
+    var botao2 = document.createElement("BUTTON");
+    var textobtn1 = document.createTextNode("Clique aqui");
+    var textobtn2 = document.createTextNode("Texto botão 2");
+
+    botao1.appendChild(textobtn1);
+    botao2.appendChild(textobtn2);
+
+    document.body.appendChild(botao1);
+    document.body.appendChild(botao2);
+
+    </script>
+  </body>
+</html>

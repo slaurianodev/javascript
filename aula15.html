@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+    <form>
+      <input type="text" value="Sergio" id="campoNome"/>
+    </form>
+    <ul>
+      <li style="margin-bottom:5px">Item</li>
+        <li style="margin-bottom:5px">Item</li>
+        <li style="margin-bottom:5px" class="fundoVerde">Item</li>
+        <li style="margin-bottom:5px">Item</li>
+          <li style="margin-bottom:5px" class="fundoVerde">Item</li>
+          <li style="margin-bottom:5px">Item</li>
+    </ul>
+    <h1 id="painelMensagem"></h1>
+
+    <script type="text/javascript">
+    /* Seletor getElementByClassName e getElementsByTagName */
+    var elementosLi = document.getElementsByTagName("li");
+    var classeFundoVerde = document.getElementsByClassName("fundoVerde");
+
+    console.log(elementosLi);
+
+    for(var i = 0; i < elementosLi.length; i++){
+        elementosLi[i].style.backgroundColor = "red";
+    }
+
+    for(var i = 0; i < classeFundoVerde.length; i++){
+        classeFundoVerde[i].style.backgroundColor = "green";
+    }
+
+    </script>
+  </body>
+</html>

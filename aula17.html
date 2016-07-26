@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+    <!-- pode-se chamar uma função dentro de um evento -->
+    <a href="http://google.com" onclick="return alerta()">Clique em mim!</a>
+
+    <script type="text/javascript">
+    /* Eventos */
+    var carregaAPagina = function(){
+      console.log("A página terminou de ser carregada!");
+    };
+
+    function alerta(){
+      console.log("Clicou no botão");
+      alert("Você clicou!");
+      return false;
+    };
+
+
+
+    window.onload = carregaAPagina;
+
+    </script>
+  </body>
+</html>

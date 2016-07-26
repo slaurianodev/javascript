@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+
+
+    <script type="text/javascript">
+    /* instruções condicionais */
+    function validaEmail(email){
+      // var email = new String("slaurianodev@gmail.com");//objeto string
+
+      var arroba = email.indexOf("@");
+      var ponto = email.indexOf(".",arroba);
+      var dominio = email.indexOf(arroba+1);
+      var usuario = email.substring(0, arroba);
+      var espacoEmBranco = email.indexOf(" ");
+
+      // console.log(espacoEmBranco);
+
+      var status = true;
+
+      if(espacoEmBranco != -1 || arroba == -1 || ponto == -1 || dominio.length < 3){
+        // console.log("E-mail inválido!");
+        status = false;
+      }
+
+      return status;
+    };
+
+
+
+    if(validaEmail("slaurianodev@gmail.com")){
+      console.log("Este e-mail é válido!");
+    } else {
+      console.log("Este e-mail é inválido!");
+    }
+
+    </script>
+  </body>
+</html>

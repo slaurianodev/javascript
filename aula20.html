@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+
+</head>
+  <body>
+
+    <h1 id="mostraSegundos">0</h1>
+    <a href="#" onclick="history.go(-1)">Voltar</a>
+
+    <script type="text/javascript">
+    // setTimeout, setInterval, history e location
+    var elementoH1 = document.getElementById("mostraSegundos");
+    var intContagem = function(){
+      elementoH1.innerHTML = parseInt(elementoH1.innerHTML)+1;
+    };
+    var intervalSegundos = setInterval(intContagem,1000);
+
+    window.onload = function(){
+        var fncTimeout = function(){
+          clearInterval(intervalSegundos);
+          alert("Passaram-se 5 segundos!")
+          window.location = "http://www.google.com";
+        }
+
+        setTimeout(fncTimeout,5000);
+      };
+
+
+
+    </script>
+  </body>
+</html>

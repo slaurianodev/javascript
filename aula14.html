@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+    <form>
+      <input type="text" value="Sergio" id="campoNome"/>
+    </form>
+
+    <h1 id="painelMensagem"></h1>
+
+    <script type="text/javascript">
+    /* Seletor getElementById */
+
+    var campoTexto = document.getElementById("campoNome");
+    var painel = document.getElementById("painelMensagem");
+
+    // campoTexto.value = valor1+valor2;
+
+    var mensagem = "Ola, seja bem vindo "+ campoTexto.value;
+
+    painel.innerHTML = mensagem;
+
+    console.log(mensagem);
+
+    </script>
+  </body>
+</html>

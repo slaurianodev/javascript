@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+
+
+    <script type="text/javascript">
+    /* instruções condicionais */
+    var plano = 2;
+
+    /* operadora ternário */
+    plano = (plano===1) ? plano : 2;
+
+    switch(plano){
+      case 1 :
+        console.log("Plano Mensal");
+        planomensal();
+        console.log("Voltou ao switch()");
+        break;
+      case 2 :
+        console.log("Plano Bimestral");
+        break;
+      default :
+        console.log("Plano Padrão")
+    };
+
+    function planomensal(){
+      console.log("Executou a função planomensal()");
+    };
+
+    </script>
+  </body>
+</html>

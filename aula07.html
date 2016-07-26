@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+
+
+    <script type="text/javascript">
+    /* strings */
+    var string1 = "frase nova";//variavel tipo string
+    var email = new String("slaurianodev@gmail.com");//objeto string
+
+    var arroba = email.indexOf("@")+1;
+
+
+    var ponto = email.indexOf(".",arroba);
+
+    console.log(email.substring(0, arroba-1));
+
+    console.log(email.replace("gmail","hotmail"));
+
+    console.log(email.toUpperCase());
+
+    console.log(email.substring(0, arroba-1).concat("@yahoo.com").toUpperCase());
+
+    </script>
+  </body>
+</html>
