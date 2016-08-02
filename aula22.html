@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+
+</head>
+  <body>
+
+    <button type="button" id="btnAbrePopup">Abre Popup</button>
+    <button type="button" id="btnFechaPopup">Fecha Popup</button>
+
+    <script type="text/javascript">
+//  Window
+
+    var popup = false;
+    // atribui as variaveis o button atraves do Id
+    var btnAbrePopup = document.getElementById('btnAbrePopup');
+    var btnFechaPopup = document.getElementById('btnFechaPopup');
+//Abre uma Popup
+    btnAbrePopup.onclick = function(){
+      popup = window.open("","Auuuga", "width=300, height=100");
+      popup.document.write("<h1>Olá Enfermeira!</h1>")
+    };
+
+// Fecha a Popup
+    btnFechaPopup.onclick = function(){
+      popup.close();
+    };
+
+    </script>
+  </body>
+</html>
