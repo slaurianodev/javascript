@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+
+  <style>
+    .imagemPequena{
+      margin:20px;
+      cursor:pointer;
+    }
+  </style>
+
+</head>
+  <body>
+
+
+    <script type="text/javascript">
+//  Trabalhando com imagens
+
+    var imagem = "";
+    // Array com objetos JSON
+    var imagens = [
+      {"imagem":"img/marvin_pequena.jpg","imagemMaior":"img/marvin_grande.jpg", "alt":"Imagem Marvin"},
+      {"imagem":"img/marvin_pequena.jpg","imagemMaior":"img/marvin_grande.jpg","alt":"Imagem Marvin"},
+      {"imagem":"img/marvin_pequena.jpg","imagemMaior":"img/marvin_grande.jpg","alt":"Imagem Marvin"},
+      {"imagem":"img/marvin_pequena.jpg","imagemMaior":"img/marvin_grande.jpg","alt":"Imagem Marvin"},
+      {"imagem":"img/marvin_pequena.jpg","imagemMaior":"img/marvin_grande.jpg","alt":"Imagem Marvin"}
+    ];
+
+// Varre o array com a imagem para exbila na tela
+    for(var i = 0; i<imagens.length; i++){
+      console.log(imagens[i]);
+
+      // Cria um elemento do tipo imagem para a pagina
+      imagem = document.createElement("IMG");
+      imagem.src = imagens[i].imagem;//caminho da imagem
+      imagem.alt = imagens[i].alt;//texto que pode ser a descricao da imagem
+      imagem.className = "imagemPequena";//classe para a imagem
+      imagem.setAttribute("imagemMaior", imagens[i].imagemMaior);
+
+      //Evento que abre uma nova popup com a imagem maior que esta no atributo da
+      // variavel imagem
+      imagem.onclick = function(){
+        window.open(this.getAttribute("imagemMaior"),"ImagemMaior", "width=900, height=1968");
+
+      };
+
+//    coloca o elemento na pagina
+      document.body.appendChild(imagem);
+    }
+
+
+    </script>
+  </body>
+</html>
