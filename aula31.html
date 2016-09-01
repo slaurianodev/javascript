@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+    <h1 id="mostraEsconde">Seja Bem vindo!</h1>
+
+    <button type="button" id="btn1">Mostra</button>
+    <button type="button" id="btn2">Esconde</button>
+
+    <h1 class="retorno"></h1>
+    <h1 class="retorno"></h1>
+    <h1 class="retorno"></h1>
+    <h1 class="retorno"></h1>
+
+
+
+    <script
+			  src="https://code.jquery.com/jquery-1.12.4.min.js">
+			  // integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  // crossorigin="anonymous">
+        </script>
+
+    <script>
+
+      $(function(){
+        $(".retorno").html("Bem vindo ao jQuery");
+        // equivalente ao document.getElementById e innerHTML respectivamente
+        // # getElementById
+        // . por classe
+        $("#btn1").click(function(){
+          $("#mostraEsconde").show('slow');
+        });
+
+        $("#btn2").click(function(){
+          $("#mostraEsconde").hide('slow');
+        });
+      });
+
+    </script>
+    </body>
+</html>

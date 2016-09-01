@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Curso JS</title>
+</head>
+  <body>
+
+    <img src="img/marvin_pequena.jpg" style="margin:10px;">
+    <img src="img/marvin_pequena.jpg" style="margin:10px;" id="img1">
+
+    <script src="src/camanjs/caman.full.min.js"></script>
+    <script>
+    Caman('#img1', function () {
+        this.brightness(5);
+        this.contrast(30);
+        this.sepia(0);
+        this.saturation(-10);
+        this.render();
+        this.stackBlur(8);
+      });
+    </script>
+    </body>
+</html>
