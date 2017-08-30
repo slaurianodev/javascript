@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https:/code.jquery.com//ui/resources/demos/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( ".accordion" ).accordion({
+        collapsible: true,
+        active: false});
+
+    } );
+  </script>
+  <style type="text/css" media="screen">
+    ul.checkbox   { 
+      margin: 0; 
+      padding: 0; 
+      margin-left: 20px; 
+      list-style: none; 
+    }
+    .valor-mensal{
+      font-weight: bold;
+    }
+    h1{
+      font-weight: bold;
+    }
+    .header-services{
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .ui-accordion .ui-accordion-header {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      margin: 2px 0 0 0;
+      padding: .5em .5em .5em .7em;
+      font-size: 24px;
+    }
+
+  </style>
+
+  <script type="text/javascript">
+  var services_value = 0.00;
+
+    function update_monthly_value(checkbox){
+      console.log("services_value atual:"+services_value);
+      var list_init_values = {"1": 159.00,"2":129.00,"3":94.00,"4":74.00};
+      var list_services_labels = {"1": "RAST. GSM A PLUS", "2":"BLOQ. NS A PLUS","3":"RAST. GSM A","4":"BLOQ. NS A"};
+      var monthly_value;
+      var yearly_value;
+      
+
+      var item_id = checkbox.id;
+      var id = item_id.length;
+      var service_id = item_id.substring(id, id-1);
+
+      var init_monthly_value = list_init_values[service_id];
+      var service_label = list_services_labels[service_id];
+
+      var list_services_values={};
+
+      var key_assist_24h = "check_assist_24hs_"+service_id;
+      var key_assist_res = "check_assist_res_"+service_id;
+      var key_frete = "check_frete_"+service_id;
+      var key_instalacao = "check_instalacao_"+service_id;
+      var key_taxa_comod = "check_taxa_comod_"+service_id;
+      var key_taxa_entrega = "check_taxa_entrega_" +service_id;
+      var key_eletro_valvula = "check_eletro_valvula_"+service_id;
+
+      list_services_values[key_assist_24h] = 200.00;
+      list_services_values[key_assist_res] = 143.00;
+      list_services_values[key_frete] = 36.00;
+      list_services_values[key_instalacao] = 120.00;
+      list_services_values[key_taxa_comod] = 180.00;
+      list_services_values[key_taxa_entrega] = 36.00;
+      list_services_values[key_eletro_valvula] = 270.00;
+
+      for(var key in list_services_values){
+        console.log(key, checkbox.id);
+        if(key == checkbox.id){
+          if(checkbox.checked == true){
+            services_value += list_services_values[key]/12;
+          }else{
+            services_value -= list_services_values[key]/12;
+          }
+        }
+
+      }
+
+      monthly_value = init_monthly_value + services_value;
+
+      yearly_value = Math.round(monthly_value) * 12;
+
+      console.log(Math.round(monthly_value), yearly_value, init_monthly_value);
+
+      update_label_values(service_label,Math.round(monthly_value),yearly_value,service_id);
+
+    }
+
+    function update_label_values(service_label,monthly_value,yearly_value,service_id){
+      $("#header-services-"+service_id).text(service_label + " Por R$ "+monthly_value+",00/mês");
+      $("#header-services-"+service_id).prepend("<span class='ui-accordion-header-icon ui-icon ui-icon-triangle-1-e'></span>");
+      $("#valor-anual-"+service_id).text("Valor anual: R$ " + yearly_value + ",00");
+    }
+  </script>
+  
+</head>
+<body>
+
+  <div id="accordion-1" class="accordion">
+    <div id="header-services-1">RAST. GSM A PLUS Por R$ 159,00/mês</div>
+    <div>
+      <div id="valor-anual-1" class="header-values">Valor anual: R$ 1908,00</div>
+      <div><b>Serviços</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_assist_24hs_1" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA 24Hs - R$ 200,00</li>
+        <li><input type="checkbox" id="check_assist_res_1" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA RESIDENCIAL - R$ 143,00</li>
+        <li><input type="checkbox" id="check_frete_1" onchange=" update_monthly_value(this)"/>FRETE - R$ 36,00</li>
+        <li><input type="checkbox" id="check_instalacao_1" onchange=" update_monthly_value(this)"/>INSTALAÇÃO ATIVAÇÃO - R$ 120,00</li>
+        <li><input type="checkbox" id="check_taxa_comod_1" onchange=" update_monthly_value(this)"/>TAXA DE COMODIDADE - R$ 180,00</li>
+        <li><input type="checkbox" id="check_taxa_entrega_1" onchange=" update_monthly_value(this)"/>TAXA DE ENTREGA - R$ 36,00</li>
+      </ul>
+      <div><b>Acessórios</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_eletro_valvula_1" onchange=" update_monthly_value(this)"/>ELETRO VALVULA - R$ 270,00</li>
+      </ul>
+      <br>
+      <div><button class="button-form">Selecionar</button></div>
+    </div>
+    <div id="header-services-2">BLOQ. NS A PLUS Por R$ 129,00/mês</div>
+    <div>
+      <div id="valor-anual-2" class="header-values">Valor anual: R$ 1548,00</div>
+      <div><b>Serviços</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_assist_24hs_2" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA 24Hs - R$ 200,00</li>
+        <li><input type="checkbox" id="check_assist_res_2" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA RESIDENCIAL - R$ 143,00</li>
+        <li><input type="checkbox" id="check_frete_2" onchange=" update_monthly_value(this)"/>FRETE - R$ 36,00</li>
+        <li><input type="checkbox" id="check_instalacao_2" onchange=" update_monthly_value(this)"/>INSTALAÇÃO ATIVAÇÃO - R$ 120,00</li>
+        <li><input type="checkbox" id="check_taxa_comod_2" onchange=" update_monthly_value(this)"/>TAXA DE COMODIDADE - R$ 180,00</li>
+        <li><input type="checkbox" id="check_taxa_entrega_2" onchange=" update_monthly_value(this)"/>TAXA DE ENTREGA - R$ 36,00</li>
+      </ul>
+      <div><b>Acessórios</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_eletro_valvula_2" onchange=" update_monthly_value(this)"/>ELETRO VALVULA - R$ 270,00</li>
+      </ul>
+      <br>
+      <div><button class="button-form">Selecionar</button></div>
+    </div>
+    <div id="header-services-3">RAST. GSM A Por R$ 94,00/mês</div>
+    <div>
+      <div id="valor-anual-3" class="header-values">Valor anual: R$ 1128,00</div>
+      <div><b>Serviços</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_assist_24hs_3" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA 24Hs - R$ 200,00</li>
+        <li><input type="checkbox" id="check_assist_res_3" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA RESIDENCIAL - R$ 143,00</li>
+        <li><input type="checkbox" id="check_frete_3" onchange=" update_monthly_value(this)"/>FRETE - R$ 36,00</li>
+        <li><input type="checkbox" id="check_instalacao_3" onchange=" update_monthly_value(this)"/>INSTALAÇÃO ATIVAÇÃO - R$ 120,00</li>
+        <li><input type="checkbox" id="check_taxa_comod_3" onchange=" update_monthly_value(this)"/>TAXA DE COMODIDADE - R$ 180,00</li>
+        <li><input type="checkbox" id="check_taxa_entrega_3" onchange=" update_monthly_value(this)"/>TAXA DE ENTREGA - R$ 36,00</li>
+      </ul>
+      <div><b>Acessórios</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_eletro_valvula_3" onchange=" update_monthly_value(this)"/>ELETRO VALVULA - R$ 270,00</li>
+      </ul>
+      <br>
+      <div><button class="button-form">Selecionar</button></div>
+    </div>
+    <div id="header-services-4">BLOQ. NS A Por R$ 74,00/mês</div>
+    <div>
+      <div id="valor-anual-4" class="header-values">Valor anual: R$ 888,00</div>
+      <div><b>Serviços</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_assist_24hs_4" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA 24Hs - R$ 200,00</li>
+        <li><input type="checkbox" id="check_assist_res_4" onchange=" update_monthly_value(this)"/>ASSISTÊNCIA RESIDENCIAL - R$ 143,00</li>
+        <li><input type="checkbox" id="check_frete_4" onchange=" update_monthly_value(this)"/>FRETE - R$ 36,00</li>
+        <li><input type="checkbox" id="check_instalacao_4" onchange=" update_monthly_value(this)"/>INSTALAÇÃO ATIVAÇÃO - R$ 120,00</li>
+        <li><input type="checkbox" id="check_taxa_comod_4" onchange=" update_monthly_value(this)"/>TAXA DE COMODIDADE - R$ 180,00</li>
+        <li><input type="checkbox" id="check_taxa_entrega_4" onchange=" update_monthly_value(this)"/>TAXA DE ENTREGA - R$ 36,00</li>
+      </ul>
+      <div><b>Acessórios</b></div>
+      <ul class="checkbox">
+        <li><input type="checkbox" id="check_eletro_valvula_4" onchange=" update_monthly_value(this)"/>ELETRO VALVULA - R$ 270,00</li>
+      </ul>
+      <br>
+      <div><button class="button-form">Selecionar</button></div>
+    </div>
+  </div>
+
+
+</body>
+</html>
